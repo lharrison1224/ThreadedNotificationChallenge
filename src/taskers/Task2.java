@@ -69,4 +69,8 @@ public class Task2 extends Thread {
             });
         }
     }
+    
+    public ThreadState getThreadState(){
+        return state;
+    }
 }

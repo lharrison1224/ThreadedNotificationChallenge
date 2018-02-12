@@ -71,4 +71,8 @@ public class Task3 extends Thread {
             pcs.firePropertyChange("message", "", message);
         });
     }
+    
+    public ThreadState getThreadState(){
+        return state;
+    }
 }
