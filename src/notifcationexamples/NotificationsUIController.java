@@ -6,7 +6,6 @@
 package notifcationexamples;
 
 import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;

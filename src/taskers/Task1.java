@@ -6,6 +6,7 @@
 package taskers;
 
 import javafx.application.Platform;
+import notifcationexamples.ThreadState;
 
 /**
  *
@@ -22,14 +23,17 @@ public class Task1 extends Thread {
     boolean exit = false;
     
     private Notifiable notificationTarget;
-    
+    private ThreadState state;
+     
     public Task1(int maxValue, int notifyEvery)  {
         this.maxValue = maxValue;
         this.notifyEvery = notifyEvery;
+        this.state = ThreadState.STOPPED;
     }
     
     @Override
     public void run() {
+        state = ThreadState.RUNNING;
         doNotify("Task1 start.");
         for (int i = 0; i < maxValue; i++) {
             
@@ -45,6 +49,7 @@ public class Task1 extends Thread {
     }
     
     public void end() {
+        state = ThreadState.STOPPED;
         exit = true;
     }
     

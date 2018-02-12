@@ -7,6 +7,7 @@ package taskers;
 
 import java.util.ArrayList;
 import javafx.application.Platform;
+import notifcationexamples.ThreadState;
 
 /**
  *
@@ -23,14 +24,18 @@ public class Task2 extends Thread {
     boolean exit = false;
     
     private ArrayList<Notification> notifications = new ArrayList<>();
+    private ThreadState state;
+            
     
     public Task2(int maxValue, int notifyEvery)  {
         this.maxValue = maxValue;
         this.notifyEvery = notifyEvery;
+        this.state = ThreadState.STOPPED;
     }
     
     @Override
     public void run() {
+        state = ThreadState.RUNNING;
         doNotify("Started Task2!");
         
         for (int i = 0; i < maxValue; i++) {
@@ -47,6 +52,7 @@ public class Task2 extends Thread {
     }
     
     public void end() {
+        state = ThreadState.STOPPED;
         exit = true;
     }
     
