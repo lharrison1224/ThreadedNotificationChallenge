@@ -49,6 +49,7 @@ public class Task2 extends Thread {
             }
         }
         doNotify("Task2 done.");
+        state = ThreadState.STOPPED;
     }
     
     public void end() {

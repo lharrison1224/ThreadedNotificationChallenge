@@ -10,5 +10,5 @@ package notifcationexamples;
  * @author loganharrison
  */
 public enum ThreadState {
-    STOPPED, PAUSED, RUNNING
+    STOPPED, RUNNING
 }
