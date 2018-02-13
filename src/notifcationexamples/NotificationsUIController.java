@@ -63,18 +63,18 @@ public class NotificationsUIController implements Initializable, Notifiable {
             task1 = new Task1(2147483647, 1000000);
             task1.setNotificationTarget(this);
             task1.start();
-            task1Button.setText("End 1");
+            task1Button.setText("End Task 1");
         }
         else if(task1.getThreadState().equals(ThreadState.RUNNING)){
             task1.end();
-            task1Button.setText("Start 1");
+            task1Button.setText("Start Task 1");
         }
     }
     
     @Override
     public void notify(String message) {
         if(message.equals("Task1 done.")){
-            task1Button.setText("Start 1");
+            task1Button.setText("Start Task 1");
         } 
         
         textArea.appendText(message + "\n");
@@ -88,14 +88,14 @@ public class NotificationsUIController implements Initializable, Notifiable {
             task2.setOnNotification((String message) -> {
                 textArea.appendText(message + "\n");
                 if(message.equals("Task2 done."))
-                    task2Button.setText("Start 2");
+                    task2Button.setText("Start Task 2");
             });
             task2.start();  
-            task2Button.setText("End 2");
+            task2Button.setText("End Task 2");
         }
         else if(task2.getThreadState().equals(ThreadState.RUNNING)){
             task2.end();
-            task2Button.setText("Start 2");
+            task2Button.setText("Start Task 2");
         }
     }
     
@@ -108,15 +108,15 @@ public class NotificationsUIController implements Initializable, Notifiable {
             task3.addPropertyChangeListener((PropertyChangeEvent evt) -> {
                 textArea.appendText((String)evt.getNewValue() + "\n");
                 if(evt.getNewValue().equals("Task3 done.")){
-                    task3Button.setText("Start 3");
+                    task3Button.setText("Start Task 3");
                 }
             });
             task3.start();
-            task3Button.setText("End 3");
+            task3Button.setText("End Task 3");
         }
         else if(task3.getThreadState().equals(ThreadState.RUNNING)){
             task3.end();
-            task3Button.setText("Start 3");
+            task3Button.setText("Start Task 3");
         }
     } 
 }
